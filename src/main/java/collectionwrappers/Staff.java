@@ -1,14 +1,15 @@
 package collectionwrappers;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static java.util.stream.Collectors.toMap;
 
-public class Staff {
+class Staff {
 
-    private static final int MAX_STAFF_SIZE = 10;
+    private static final int MAX_STAFF_SIZE = 4;
 
     private final Map<String, Employee> staff;
 
@@ -48,6 +49,32 @@ public class Staff {
 
     void removeEmployee(final String pesel) {
         staff.remove(pesel);
+    }
+
+    BigDecimal earningsSum() {
+        return staff.values()
+                .stream()
+                .map(Employee::getEarnings)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    BigDecimal managerEarningsSum() {
+        return staff.values()
+                .stream()
+                .filter(Employee::isManager)
+                .map(Employee::getEarnings)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    long managersCount() {
+        return staff.values()
+                .stream()
+                .filter(Employee::isManager)
+                .count();
+    }
+
+    long noManagersCount() {
+        return size() - managersCount();
     }
 
 }

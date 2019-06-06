@@ -21,7 +21,7 @@ public class Money {
     }
 
     static Money of(int money) {
-        return of(new BigDecimal(money));
+        return of(BigDecimal.valueOf(money));
     }
 
     static Money of(BigInteger money) {
