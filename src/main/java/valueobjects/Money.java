@@ -24,10 +24,6 @@ public class Money {
         return of(new BigDecimal(money));
     }
 
-    static Money of(float money) {
-        return of(new BigDecimal(money));
-    }
-
     static Money of(BigInteger money) {
         return of(new BigDecimal(money));
     }

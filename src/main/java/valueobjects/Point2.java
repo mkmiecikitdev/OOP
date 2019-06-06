@@ -1,5 +1,7 @@
 package valueobjects;
 
+import java.util.Random;
+
 public class Point2 {
 
     private float x;
@@ -18,14 +20,13 @@ public class Point2 {
         return new Point2(calculateX(r, fi), calculateY(r, fi));
     }
 
-    static private float calculateX(float x, float y) {
+    private static float calculateX(float r, float fi) {
         // TODO
-        return 0;
+        return new Random().nextFloat();
     }
 
-    static private float calculateY(float x, float y) {
+    private static float calculateY(float r, float fi) {
         // TODO
-        return 0;
+        return new Random().nextFloat();
     }
-
 }
