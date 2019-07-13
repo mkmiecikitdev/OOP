@@ -1,5 +1,3 @@
-Podstawowe building blocki w programowaniu obiektowym
-
 Obiekty wartości (value objects)
 
 - opakowujemy typy prymitywne w niemutowalne klasy z metodami biznesowymi
